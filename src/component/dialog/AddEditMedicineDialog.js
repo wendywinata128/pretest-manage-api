@@ -28,7 +28,7 @@ const AddEditMedicineDialog = ({
           <div className="w-full">
             <div className="flex justify-between items-center mb-6 ">
               <h6 className="text-lg text-left w-full font-bold border-l-[4px] border-[#42934A] pl-4 ">
-                Add New Medicine
+                {isEdit ? "Edit Medicine" : "Add New Medicine"}
               </h6>
 
               <Button
