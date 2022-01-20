@@ -32,11 +32,11 @@ const TabActions = ({
         placeholder="Search Medicine Name"
         borderColor="white"
         textColor="white"
-        className="mb-4 md:mb-0"
+        className="w-full md:w-fit"
         onTyped={onSearchTyped}
         Icon={CgSearch}
       />
-      <div className="filter-container flex ml-auto">
+      <div className="filter-container flex ml-auto mt-4 md:mt-0">
         <Button
           title=""
           Icon={AiOutlineSortAscending}
@@ -47,16 +47,17 @@ const TabActions = ({
         />
         <Filter
           options={filterOptions}
-          className="mr-6"
+          className="md:mr-6"
           onDropdownChanged={onFilterChanged}
         />
-        <Button
-          title="Add New Medicine"
-          backgroundColor="#34743A"
-          onClicked={onAddMedicineClicked}
-          shadow={true}
-        />
       </div>
+      <Button
+        title="Add New Medicine"
+        backgroundColor="#34743A"
+        onClicked={onAddMedicineClicked}
+        shadow={true}
+        className="mt-4 md:mt-0"
+      />
     </div>
   );
 };

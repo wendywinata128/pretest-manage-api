@@ -4,6 +4,7 @@ import AddEditMedicine from "../dialog/AddEditMedicineDialog";
 import DeleteMedicineDialog from "../dialog/DeleteMedicineDialog";
 import TabActions from "./TabActions";
 import MedicineItem from "./MedicineItem";
+import { store } from "react-notifications-component";
 
 const MedicineContainer = ({ className }) => {
   const [listMedicine, setListMedicine] = useState([]);
@@ -24,6 +25,10 @@ const MedicineContainer = ({ className }) => {
     await MedicineRequest.addNewMedicine(name, description, status);
 
     await getMedicine();
+    createSuccessNotification(
+      "Success",
+      "Medicine Added Successfully to your account"
+    );
     closeDialog();
   };
 
@@ -36,6 +41,8 @@ const MedicineContainer = ({ className }) => {
     await MedicineRequest.editMedicine(id, name, description, status);
 
     await getMedicine();
+    createSuccessNotification("Success", "Medicine Edited Successfully");
+
     closeDialog();
   };
 
@@ -48,6 +55,10 @@ const MedicineContainer = ({ className }) => {
     await MedicineRequest.deleteMedicine(id);
 
     await getMedicine();
+    createSuccessNotification(
+      "Success",
+      "Medicine Deleted Successfully from your account"
+    );
 
     closeDialog();
   };
@@ -63,6 +74,20 @@ const MedicineContainer = ({ className }) => {
       const { data } = res;
 
       setListMedicine(data.data ?? []);
+    });
+  };
+
+  const createSuccessNotification = (title, message) => {
+    store.addNotification({
+      title: title,
+      message: message,
+      type: "success",
+      container: "bottom-right",
+      animationIn: ["animate__animated", "animate__fadeIn"],
+      animationOut: ["animate__animated", "animate__fadeOut"],
+      dismiss: {
+        duration: 2000,
+      },
     });
   };
 

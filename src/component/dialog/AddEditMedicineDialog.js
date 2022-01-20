@@ -26,21 +26,34 @@ const AddEditMedicineDialog = ({
       <Card
         child={
           <div className="w-full">
-            <h6 className="mb-6 text-lg text-left w-full font-bold border-l-[4px] border-[#42934A] pl-4 ">
-              Add New Medicine
-            </h6>
+            <div className="flex justify-between items-center mb-6 ">
+              <h6 className="text-lg text-left w-full font-bold border-l-[4px] border-[#42934A] pl-4 ">
+                Add New Medicine
+              </h6>
+
+              <Button
+                className="font-bold text-lg"
+                onClicked={onBackClicked}
+                title="X"
+                textColor="#E10009"
+              />
+            </div>
+
             <TextField
               placeholder="Medicine Name"
               bgColor="black"
               className="w-full mb-2"
               onTyped={(e) => setFieldName(e.target.value)}
               value={fieldName}
+              title="Medicine Name"
             />
+
             <TextArea
-              className="w-full mb-4"
+              className="w-full mb-2"
               placeholder="Medicine Description"
               onTyped={(e) => setFieldDescription(e.target.value)}
               value={fieldDescription}
+              title="Medicine Description"
             />
             <Chooser
               className="mb-4"
@@ -51,13 +64,9 @@ const AddEditMedicineDialog = ({
               ]}
               defaultValue={fieldStatus}
               onValueChanged={(newVal) => setFieldStatus(newVal)}
+              title="Status"
             />
-            <div className="action grid grid-cols-2 w-full gap-4 mt-8">
-              <Button
-                onClicked={onBackClicked}
-                title="Go Back"
-                textColor="#E10009"
-              />
+            <div className="action w-full gap-4 mt-8">
               <Button
                 onClicked={() =>
                   isEdit
@@ -72,6 +81,7 @@ const AddEditMedicineDialog = ({
                 title={isEdit ? "Edit" : "Add"}
                 textColor="white"
                 backgroundColor="#34743A"
+                className="w-full"
               />
             </div>
           </div>
