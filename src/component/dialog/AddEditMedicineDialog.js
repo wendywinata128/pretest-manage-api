@@ -55,8 +55,8 @@ const AddEditMedicineDialog = ({
             <div className="action grid grid-cols-2 w-full gap-4 mt-8">
               <Button
                 onClicked={onBackClicked}
-                title="Cancel"
-                textColor="black"
+                title="Go Back"
+                textColor="#E10009"
               />
               <Button
                 onClicked={() =>
