@@ -1,23 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TabHeader from "./component/body/TabHeader";
+import MedicineContainer from "./component/body/MedicineContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App ">
+      <TabHeader className="mb-8" />
+      <MedicineContainer className="h-14 mx-16" />
     </div>
   );
 }
